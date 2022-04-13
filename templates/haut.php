@@ -51,16 +51,15 @@ if(!isset($_SESSION['login'])){
 
                 <?php
                 $pagecourante=  basename($_SERVER["SCRIPT_FILENAME"], '.php');
-
                 ?>
 
 
-                <div class="collapse <?php if($pagecourante == "ajouterClient" or $pagecourante == "listerClient" or $pagecourante == "chercherClient") {echo "show"; } ?>" id="home-collapse">
+                <div class="collapse <?php if($pagecourante == "AjouterClient" or $pagecourante == "listerClient" or $pagecourante == "ChercherClient") {echo "show"; } ?>" id="home-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="AjouterClient.php" class="link-dark rounded">Ajouter</a></li>
                         <li><a href="ChercherClient.php" class="link-dark rounded">Chercher</a></li>
                         <li><a href="listerClient.php" class="link-dark rounded">Lister</a></li>
-                        <li><a href="#" class="link-dark rounded">Exporter</a></li>
+
                     </ul>
                 </div>
             </li>
@@ -68,10 +67,10 @@ if(!isset($_SESSION['login'])){
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
                     Produits
                 </button>
-                <div class="collapse <?php if($pagecourante == "AjouterProduit" or $pagecourante == "listerProduit" ) {echo "show"; } ?> " id="dashboard-collapse">
+                <div class="collapse <?php if($pagecourante == "ChercherProduit" or $pagecourante == "AjouterProduit" or $pagecourante == "listerProduit" ) {echo "show"; } ?> " id="dashboard-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="AjouterProduit.php" class="link-dark rounded">Ajouter</a></li>
-                        <li><a href="#" class="link-dark rounded">Chercher</a></li>
+                        <li><a href="ChercherProduit.php" class="link-dark rounded">Chercher</a></li>
                         <li><a href="listerProduit.php" class="link-dark rounded">Lister</a></li>
                         <li><a href="#" class="link-dark rounded">Exporter</a></li>
                     </ul>
@@ -81,7 +80,7 @@ if(!isset($_SESSION['login'])){
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
                     Commandes
                 </button>
-                <div class="collapse" id="orders-collapse">
+                <div class="collapse <?php if($pagecourante == "AjouterCommande" or $pagecourante == "ListerCommande" ) {echo "show"; } ?> " id="orders-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="AjouterCommande.php" class="link-dark rounded">Ajouter</a></li>
                         <li><a href="ListerCommande.php" class="link-dark rounded">Afficher</a></li>
@@ -96,7 +95,7 @@ if(!isset($_SESSION['login'])){
                 <div class="collapse" id="orders-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="Exportation.php" class="link-dark rounded">Export</a></li>
-                        <li><a href="Importation.php" class="link-dark rounded">Import</a></li>
+                        <li><a href="#" class="link-dark rounded">Import</a></li>
                         <li><a href="Courbes.php" class="link-dark rounded">Courbes</a></li>
 
                     </ul>

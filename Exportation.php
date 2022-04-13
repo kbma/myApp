@@ -3,7 +3,7 @@ include 'inc/DB.php';
 $mysql= new DB();
 $c= $mysql->cnx;
 
-$sql = "SELECT * FROM `clients` order by ID";
+$sql = "SELECT * FROM `clients` order by ID ";
 
 $stmt=$c->query($sql);
 $rs= $stmt->fetchAll(PDO::FETCH_ASSOC);
