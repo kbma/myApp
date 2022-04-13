@@ -19,7 +19,7 @@ if(isset($_POST['LOGIN'])){
 <head>
     <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
     <link href="css/index.css" rel="stylesheet" id="bootstrap-css">
 </head>

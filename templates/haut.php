@@ -30,6 +30,7 @@ if(!isset($_SESSION['login'])){
 
     <!-- Custom styles for this template -->
     <link href="css/sidebars.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
 </head>
 <body>
 
@@ -37,9 +38,8 @@ if(!isset($_SESSION['login'])){
 <main>
     <h1 class="visually-hidden">Gestion des commandes</h1>
 
-
     <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-        <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+        <a href="home.php" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
             <img src="images/logo.jpg" width="50px"/>
             <span class="fs-5 fw-semibold">My App</span>
         </a>
@@ -48,7 +48,14 @@ if(!isset($_SESSION['login'])){
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
                     Clients
                 </button>
-                <div class="collapse show" id="home-collapse">
+
+                <?php
+                $pagecourante=  basename($_SERVER["SCRIPT_FILENAME"], '.php');
+
+                ?>
+
+
+                <div class="collapse <?php if($pagecourante == "ajouterClient" or $pagecourante == "listerClient" or $pagecourante == "chercherClient") {echo "show"; } ?>" id="home-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="AjouterClient.php" class="link-dark rounded">Ajouter</a></li>
                         <li><a href="ChercherClient.php" class="link-dark rounded">Chercher</a></li>
@@ -61,7 +68,7 @@ if(!isset($_SESSION['login'])){
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
                     Produits
                 </button>
-                <div class="collapse" id="dashboard-collapse">
+                <div class="collapse <?php if($pagecourante == "AjouterProduit" or $pagecourante == "listerProduit" ) {echo "show"; } ?> " id="dashboard-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li><a href="AjouterProduit.php" class="link-dark rounded">Ajouter</a></li>
                         <li><a href="#" class="link-dark rounded">Chercher</a></li>
