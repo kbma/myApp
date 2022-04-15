@@ -4,7 +4,7 @@
         <h5 class="card-header">Ajouter un nouveau Produit</h5>
         <div class="card-body">
 
-            <form action="inc/AjouterProduitAction.php" method="post" enctype="multipart/form-data">
+            <form action="AjouterProduitAction.php" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-4">
                         <label class="form-check-label" for="exampleCheck1">LIBELLE</label>

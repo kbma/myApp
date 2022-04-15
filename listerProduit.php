@@ -90,7 +90,7 @@ $nbrePages=ceil(count($reponsePage)/$nbre,);
                             </div>
                         </form>
                         <!-- Modal delete-->
-                        <form action="inc/DeleteProduitAction.php" method="post" enctype="multipart/form-data">
+                        <form action="DeleteProduitAction.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" value="<?php echo $produit['ID']; ?>" name="ID"/>
                             <input type="hidden" value="<?php echo $produit['PHOTO']; ?>" name="PHOTO_OLD"/>
                             <div class="modal fade" id="exampleModalDelete<?php echo $produit['ID']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

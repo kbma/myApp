@@ -14,7 +14,7 @@ $reponseProduit = $c->query($sqlProduit)->fetchAll();
         <h5 class="card-header">Ajouter une commande</h5>
         <div class="card-body">
 
-            <form action="inc/AjouterCommandeAction.php" method="post" >
+            <form action="AjouterCommandeAction.php" method="post" >
                 <div class="row">
                     <div class="col-4">
                         <label class="form-check-label" for="exampleCheck1">Client</label>

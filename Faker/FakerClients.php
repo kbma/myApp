@@ -4,15 +4,9 @@ require_once '../vendor/autoload.php';
 include '../inc/DB.php';
 
 
-class FakerClient
+class FakerClient extends DB
 {
-    public $c;
 
-    public function __construct()
-    {
-        $mysql= new DB();
-        $this->c= $mysql->cnx;
-    }
     public function clean($string) {
         $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
         $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
@@ -22,7 +16,7 @@ class FakerClient
 
     public function generator(){
         $Faker = Faker\Factory::create();
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 10; $i++) {
 
             $TITRE=$Faker->title();
             $NOM=$this->clean(htmlspecialchars($Faker->firstName()));
@@ -33,7 +27,7 @@ class FakerClient
 
             echo $sql="INSERT INTO `clients`(`NOM`, `PRENOM`, `TEL`, `PHOTO`) VALUES ('$NOM','$PRENOM','$TEL','$PHOTO')";
 
-           $action =$this->c->query($sql);
+           $action =$this->cnx->query($sql);
 
         }
     }

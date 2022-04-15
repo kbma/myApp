@@ -1,23 +1,21 @@
 <?php include 'templates/haut.php';?>
 <?php
-include 'inc/DB.php';
-$mysql= new DB();
-$c= $mysql->cnx;
+include 'CRUDClient.php';
+
+$CRUD = new CRUDClient();
+$nbreClientParPage=5;
+$nbrePages= $CRUD->nbrePages($nbreClientParPage);
 $debut= $_GET['debut']??$_GET['debut']??0;
-$nbre= $_GET['nbre']??$_GET['nbre']??8;
+$nbre= $_GET['nbre']??$_GET['nbre']??$nbreClientParPage;
 $PageCourante= $_GET['pagecourante']??$_GET['pagecourante']??1;
 
-$sql = "SELECT * FROM `clients` order by ID DESC limit ".$debut.",".$nbre;
-$reponse = $c->query($sql);
-
-$sqlPage = "SELECT * FROM `clients`";
-$reponsePage = $c->query($sqlPage)->fetchAll();
-$nbrePages=ceil(count($reponsePage)/$nbre,);
+$sql = "SELECT * FROM `clients` order by ID DESC limit ".$debut.",".$nbreClientParPage;
+$reponse = $CRUD->cnx->query($sql);
 
 
 ?>
     <div class="card">
-        <h5 class="card-header">La liste des clients:  </h5>
+        <h5 class="card-header">La liste des clients:  Total = <?php echo count($CRUD->getClients()); ?></h5>
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
@@ -50,7 +48,7 @@ $nbrePages=ceil(count($reponsePage)/$nbre,);
                         </button>
 
                         <!-- Modal Edit-->
-                        <form action="inc/UpdateClientAction.php" method="post" enctype="multipart/form-data">
+                        <form action="UpdateClientAction.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" value="<?php echo $client['ID']; ?>" name="ID"/>
                             <input type="hidden" value="<?php echo $client['PHOTO']; ?>" name="PHOTO_OLD"/>
                             <div class="modal fade" id="exampleModal<?php echo $client['ID']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,7 +93,7 @@ $nbrePages=ceil(count($reponsePage)/$nbre,);
                             </div>
                         </form>
                         <!-- Modal delete-->
-                        <form action="inc/DeleteClientAction.php" method="post" enctype="multipart/form-data">
+                        <form action="DeleteClientAction.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" value="<?php echo $client['ID']; ?>" name="ID"/>
                             <input type="hidden" value="<?php echo $client['PHOTO']; ?>" name="PHOTO_OLD"/>
                             <div class="modal fade" id="exampleModalDelete<?php echo $client['ID']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -126,7 +124,7 @@ $nbrePages=ceil(count($reponsePage)/$nbre,);
 
                     </td>
                 </tr>
-                <?php }?>
+                <?php } ?>
 
                 </tbody>
             </table>
@@ -153,10 +151,6 @@ $nbrePages=ceil(count($reponsePage)/$nbre,);
             </nav>
 
 
-            <button type="button" class="btn btn-success">
-                Total <span class="badge badge-light"><?php echo count($reponsePage);?></span>
-
-            </button>
 
         </div>
 

@@ -82,7 +82,7 @@ $PageCourante=$_GET['PageCourante']??$_GET['PageCourante']??1;
                                 <div class="modal-dialog">
                                     <div class="modal-content">
 
-                                        <form action="inc/updateProduitAction.php" method="post" enctype="multipart/form-data">
+                                        <form action="updateProduitAction.php" method="post" enctype="multipart/form-data">
                                             <input type="hidden" value="<?php echo $produit['ID']; ?>" name="ID"/>
                                             <input type="hidden" value="<?php echo $produit['PHOTO']; ?>" name="PHOTO_OLD"/>
                                             <div class="modal-header">

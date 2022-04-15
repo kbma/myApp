@@ -55,6 +55,7 @@ $PageCourante=$_GET['PageCourante']??$_GET['PageCourante']??1;
             <!-------Fin du formulaire de recherche---------->
 
 
+
             <table class="table">
                 <thead>
                 <tr>
